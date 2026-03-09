@@ -1,3 +1,4 @@
+import { ApplicationConfig } from '@angular/core';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -47,3 +48,13 @@ export const routes: Routes = [
     pathMatch: 'full'
   }
 ];
+
+import { provideRouter, withHashLocation } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes, withHashLocation()), // ¡Importante!
+    provideHttpClient()
+  ]
+};
