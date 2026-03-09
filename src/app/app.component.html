@@ -1,0 +1,85 @@
+<div class="app-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <!-- Logo -->
+        <a routerLink="/" class="logo" (click)="closeMobileMenu()">
+          <span class="logo-icon">🚀</span>
+          <span class="logo-text">MiPortafolio</span>
+        </a>
+        
+        <!-- Menú de navegación principal (Desktop) -->
+        <div class="nav-links">
+          <a 
+            *ngFor="let item of navItems"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+            class="nav-link"
+          >
+            <span class="nav-icon">{{item.icon}}</span>
+            <span class="nav-label">{{item.label}}</span>
+          </a>
+        </div>
+        
+        <!-- Botón menú móvil -->
+        <button class="mobile-menu-btn" (click)="toggleMobileMenu()" aria-label="Abrir menú">
+          <span class="menu-icon">☰</span>
+        </button>
+      </nav>
+    </div>
+    
+    <!-- Menú móvil desplegable -->
+    <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+      <div class="mobile-menu-content">
+        <button class="close-menu-btn" (click)="closeMobileMenu()" aria-label="Cerrar menú">
+          <span>✕</span>
+        </button>
+        
+        <div class="mobile-nav-links">
+          <a 
+            *ngFor="let item of navItems"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+            class="mobile-nav-link"
+            (click)="closeMobileMenu()"
+          >
+            <span class="mobile-nav-icon">{{item.icon}}</span>
+            <span class="mobile-nav-label">{{item.label}}</span>
+          </a>
+        </div>
+        
+        <div class="mobile-footer">
+          <p>&copy; {{currentYear}} Portafolio Angular</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <router-outlet />
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Conéctate</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="GitHub">🐙 GitHub</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">💼 LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {{currentYear}} Portafolio hecho en Angular. Todos los derechos reservados.</p>
+        <p class="footer-note">Portafolio de Jesus Felipe Cordoba Echandia</p>
+      </div>
+    </div>
+  </footer>
+</div>
