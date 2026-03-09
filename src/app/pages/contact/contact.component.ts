@@ -34,7 +34,6 @@ export class ContactComponent {
     
     // Simulación de envío del formulario
     setTimeout(() => {
-      console.log('Formulario enviado:', this.formData);
       this.isSubmitting = false;
       this.submitSuccess = true;
       this.submitMessage = '¡Mensaje enviado correctamente! Te responderé en breve.';

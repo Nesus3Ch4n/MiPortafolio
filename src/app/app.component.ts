@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Portafolio Angular';
   currentYear = new Date().getFullYear();
   
   // Datos para el menú de navegación

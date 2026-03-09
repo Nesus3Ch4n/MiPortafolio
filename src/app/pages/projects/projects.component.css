@@ -1,47 +1,3 @@
-.projects-page {
-  padding: var(--space-16) var(--space-4);
-  min-height: calc(100vh - 200px);
-  background: var(--bg-primary);
-}
-
-.page-header {
-  text-align: center;
-  margin-bottom: var(--space-16);
-  animation: fadeInDown var(--transition-slow);
-}
-
-.page-header h1 {
-  color: var(--primary-500);
-  margin-bottom: var(--space-4);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.page-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: calc(-1 * var(--space-4));
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
-  border-radius: var(--radius-full);
-  box-shadow: 0 0 15px var(--primary-500);
-}
-
-.subtitle {
-  color: var(--text-secondary);
-  margin-bottom: var(--space-12);
-  font-size: var(--font-size-lg);
-  max-width: 600px;
-  margin: var(--space-8) auto 0;
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -275,10 +231,6 @@
   .projects-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
-  }
-  
-  .page-header h1 {
-    font-size: var(--font-size-3xl);
   }
   
   .project-links {
