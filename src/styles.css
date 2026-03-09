@@ -179,6 +179,23 @@ body {
   }
 }
 
+/* Shell crítico: asegura que app-root y estructura sean visibles desde el primer paint */
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 200px);
+}
+
 /* Layout base de páginas (evita duplicación en CSS de componentes) */
 .about-page,
 .projects-page,
