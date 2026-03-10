@@ -33,20 +33,20 @@ export class ProjectsComponent {
       title: 'Proyecto Generacion Numeros Aleatorios',
       description: 'Proyecto de generacion de numeros aleatorios con Angular 17+ y FastAPI.',
       technologies: ['Angular', 'TypeScript', 'CSS', 'FastAPI', 'Oracle'],
-      image: '/assets/images/gna/gna.png',
+      image: '${environment.baseHref}assets/images/gna/gna.png',
       liveUrl: 'https://github.com/Nesus3Ch4n/proyecto-gna-frontend',
       demo: {
         summary: 'Generacion de numeros aleatorios.',
         details:
           'Este proyecto muestra mi experiencia en Angular, diseño responsive y optimización de rendimiento para un proceso de generacion de numeros aleatorios, realizado en las practicas empresariales de la universidad Santiago de Cali.',
         images: [
-          '/assets/images/gna/gna-login.png',
-          '/assets/images/gna/gna-register.png',
-          '/assets/images/gna/gna-home.png',
-          '/assets/images/gna/gna-numbers.png',
-          '/assets/images/gna/gna.png',
-          '/assets/images/gna/gna-audit.png',
-          '/assets/images/gna/gna-roles.png',
+          '${environment.baseHref}assets/images/gna/gna-login.png',
+          '${environment.baseHref}assets/images/gna/gna-register.png',
+          '${environment.baseHref}assets/images/gna/gna-home.png',
+          '${environment.baseHref}assets/images/gna/gna-numbers.png',
+          '${environment.baseHref}assets/images/gna/gna.png',
+          '${environment.baseHref}assets/images/gna/gna-audit.png',
+          '${environment.baseHref}assets/images/gna/gna-roles.png',
         ]
       }
     },
