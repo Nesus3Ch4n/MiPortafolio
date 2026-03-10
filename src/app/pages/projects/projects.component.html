@@ -8,23 +8,47 @@
       <div class="projects-grid">
         <div class="project-card" *ngFor="let project of projects">
           <div class="project-image">
-            <div class="image-placeholder">{{project.image}}</div>
+            <img *ngIf="esRutaImagen(project.image)" [src]="project.image" [alt]="project.title" class="image-placeholder" />
           </div>
           <div class="project-content">
-            <h3>{{project.title}}</h3>
-            <p>{{project.description}}</p>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
             
             <div class="tech-tags">
               <span class="tag" *ngFor="let tech of project.technologies">
-                {{tech}}
+                {{ tech }}
               </span>
             </div>
             
             <div class="project-links">
-              <a [href]="project.liveUrl" class="link-btn" target="_blank">
-                Ver Demo
-              </a>
-              <a [href]="project.githubUrl" class="link-btn secondary" target="_blank">
+              <!-- Botón que abre el modal solo si hay demo configurada -->
+              <button
+                type="button"
+                class="link-btn"
+                [disabled]="!project.demo"
+                (click)="openDemo(project)"
+              >
+                Ver Proyecto
+              </button>
+              
+              <!-- Enlace opcional al sitio en vivo -->
+              <!-- <a
+                *ngIf="project.liveUrl"
+                [href]="project.liveUrl"
+                class="link-btn secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver repositorio
+              </a> -->
+              
+              <a
+                *ngIf="project.githubUrl"
+                [href]="project.githubUrl"
+                class="link-btn secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub
               </a>
             </div>
@@ -34,6 +58,74 @@
       
       <div class="more-info">
         <p>¿Interesado en ver más proyectos? <a routerLink="/contacto">Contáctame</a> para conocer todos mis trabajos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de detalle de proyecto -->
+  <div
+    class="project-modal-backdrop"
+    *ngIf="selectedProject as project"
+    (click)="closeDemo()"
+  >
+    <div class="project-modal" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="project-modal-close"
+        aria-label="Cerrar detalle de proyecto"
+        (click)="closeDemo()"
+      >
+        ✕
+      </button>
+
+      <div class="project-modal-header">
+        <h2>{{ project.title }}</h2>
+        <p class="project-modal-summary">
+          {{ project.demo?.summary || project.description }}
+        </p>
+      </div>
+
+      <div class="project-modal-body">
+        <div class="project-modal-text">
+          <p>{{ project.demo?.details }}</p>
+          
+          <div class="project-modal-tech">
+            <span class="project-modal-label">Tecnologías:</span>
+            <span class="project-modal-chip" *ngFor="let tech of project.technologies">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+
+        <div class="project-modal-gallery" *ngIf="project.demo?.images?.length">
+          <div
+            class="project-modal-image"
+            *ngFor="let img of project.demo!.images; let i = index"
+          >
+            <img [src]="img" [alt]="project.title + ' captura ' + (i + 1)" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="project-modal-footer">
+        <a
+          *ngIf="project.liveUrl"
+          [href]="project.liveUrl"
+          class="link-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver repositorio
+        </a>
+        <a
+          *ngIf="project.githubUrl"
+          [href]="project.githubUrl"
+          class="link-btn secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver código
+        </a>
       </div>
     </div>
   </div>
