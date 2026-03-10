@@ -7,7 +7,20 @@
   position: relative;
   overflow: hidden;
   animation: fadeInDown var(--transition-slow);
-  border-bottom: 2px solid var(--primary-500);
+  border-bottom: 0px solid var(--primary-500);
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+}
+
+.hero-projects {
+  text-align: center;
+  padding: var(--space-16) var(--space-4);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #121212 70%, #0a0a0a 100%);
+  color: var(--text-primary);
+  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInDown var(--transition-slow);
+  border-bottom: 1px solid var(--primary-500);
   box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
 }
 
